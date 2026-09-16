@@ -1,0 +1,50 @@
+PARA LEA
+========
+
+Estructura
+----------
+  index.html              todo el sitio: estilos, guion y motor
+  assets/img/             las 40 fotos, ya en WebP
+  assets/video/           lluvia.mp4 y su póster
+  assets/audio/           vacía, esperando las canciones
+
+Para verlo en local
+-------------------
+Abre index.html en el navegador. Funciona sin servidor.
+Si el video no arranca, levanta un servidor de un comando:
+
+  python3 -m http.server 8000
+
+y entra a http://localhost:8000
+
+Para subirlo
+------------
+Sube la carpeta entera tal cual. No hay build ni dependencias:
+solo se descargan las fuentes desde Google Fonts.
+
+Dónde se edita cada cosa
+------------------------
+Todo está dentro de index.html, en el bloque <script>:
+
+  1. IMG          rutas de las fotos y del video
+  2. CLIMAS       cada preset de cielo (color, nubes, lluvia, estrellas, sol)
+  3. SCENES       el guion completo, una escena por objeto
+     weather   qué clima usa
+     pos       'low' | 'high' | 'mid'  (dónde se ancla el texto)
+     photo     side 'left' | 'right', tone 'color' para no aplicar b/n,
+               items[] con src, rot y alt. Una foto sola sale grande,
+               dos o más salen apiladas.
+     html      el texto de la escena
+  MUSIC         pistas por rango de escenas, comentado hasta que existan
+
+Ajustes que quizá quieras tocar
+-------------------------------
+  0.085  en applyScroll        inercia del scroll (más alto = más seco)
+  SNAP_AL_PARAR                ponlo en true para que ajuste solo al parar
+  brightness / grayscale       en .slide img, el tratamiento de las fotos
+
+Navegación
+----------
+Rueda o trackpad para ir libre.
+Flechas, avanzar/retroceder página, barra espaciadora, Inicio y Fin
+para saltar de escena en escena.

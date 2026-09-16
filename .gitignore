@@ -1,0 +1,4 @@
+# no rastrear nada dentro de esto por accidente
+.DS_Store
+Thumbs.db
+*.tmp
